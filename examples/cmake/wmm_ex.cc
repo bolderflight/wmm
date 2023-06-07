@@ -24,7 +24,15 @@
 */
 
 #include "wmm.h"
+#include <iostream>
 
 int main() {
-  bfs::wrldmagm(100000, -80, 240, 2022.5);
+  bfs::WmmData data = bfs::wrldmagm(2062, 35.691544, -105.944183, 2022.5);
+  std::cout << data.mag_field_nt[0] << std::endl;
+  std::cout << data.mag_field_nt[1] << std::endl;
+  std::cout << data.mag_field_nt[2] << std::endl;
+  std::cout << data.horz_intensity_nt << std::endl;
+  std::cout << data.declination_deg << std::endl;
+  std::cout << data.inclination_deg << std::endl;
+  std::cout << data.total_intensity_nt << std::endl;
 }

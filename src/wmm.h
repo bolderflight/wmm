@@ -33,26 +33,29 @@
 #include <cinttypes>
 #endif
 
+#include "units.h"  // NOLINT
+
 namespace bfs {
 
 enum WmmModel : int8_t {
   WMM2020,
   WMM2015_V2,
-  WMM2015_V1
+  WMM2015
 };
 
 struct WmmData {
-  float mag_field_ut[3];
-  float horz_intensity_ut;
-  float declination;
-  float inclination;
-  float total_intensity_ut;
+  float mag_field_nt[3];
+  float horz_intensity_nt;
+  float declination_deg;
+  float inclination_deg;
+  float total_intensity_nt;
 };
 
-WmmData wrldmagm(const float alt, const double lat, const double lon,
-                 const double decyear, const WmmModel model);
-WmmData wrldmagm(const float alt, const double lat, const double lon,
-                 const double decyear);
+WmmData wrldmagm(const float alt, const float lat, const float lon,
+                 const float decyear, const WmmModel model,
+                 const AngPosUnit ang = AngPosUnit::DEG);
+WmmData wrldmagm(const float alt, const float lat, const float lon,
+                 const float decyear, const AngPosUnit ang = AngPosUnit::DEG);
 }  // namespace bfs
 
-#endif  // WMM_SRC_WMM_H_
+#endif  // WMM_SRC_WMM_H_ NOLINT

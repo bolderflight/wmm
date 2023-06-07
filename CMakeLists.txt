@@ -1,9 +1,9 @@
 # v3.14 required for FetchContent_MakeAvailable
 cmake_minimum_required(VERSION 3.14)
 # Project information
-project(Wmm2020
+project(Wmm
   VERSION 1.0.0
-  DESCRIPTION "World Magnetic Model 2020"
+  DESCRIPTION "World Magnetic Model"
   LANGUAGES CXX
 )
 include(FetchContent)
@@ -16,10 +16,12 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(units)
 # Add the library target
 add_library(wmm
+  src/wmm.h
   src/wmm.cpp
+  src/XYZgeomag.h
 )
 target_link_libraries(wmm
-  PRIVATE
+  PUBLIC
     units
 )
 # Setup include directories 

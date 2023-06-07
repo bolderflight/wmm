@@ -6,8 +6,5 @@ Lint:
   tags:
     - bfs
   script: 
-    - cpplint --verbose=0 src/julian.cpp
-    - cpplint --verbose=0 src/julian.h
     - cpplint --verbose=0 src/wmm.cpp
     - cpplint --verbose=0 src/wmm.h
-    - cpplint --verbose=0 src/XYZgeomag.h

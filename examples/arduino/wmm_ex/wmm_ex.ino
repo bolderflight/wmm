@@ -23,26 +23,19 @@
 * IN THE SOFTWARE.
 */
 
-#ifndef JULIAN_SRC_JULIAN_H_  // NOLINT
-#define JULIAN_SRC_JULIAN_H_
+#include "wmm.h"
 
-#if defined(ARDUINO)
-#include "Arduino.h"
-#else
-#include <cstddef>
-#include <cinttypes>
-#include "core/core.h"
-#endif
+void setup() {
+  Serial.begin(115200);
+  while (!Serial) {}
+  bfs::WmmData data = bfs::wrldmagm(2062, 35.691544, -105.944183, 2022.5);
+  Serial.println(data.mag_field_nt[0]);
+  Serial.println(data.mag_field_nt[1]);
+  Serial.println(data.mag_field_nt[2]);
+  Serial.println(data.horz_intensity_nt);
+  Serial.println(data.declination_deg);
+  Serial.println(data.inclination_deg);
+  Serial.println(data.total_intensity_nt);
+}
 
-namespace bfs {
-
-double julian(const int16_t yyyy, const int8_t mm, const int8_t dd,
-              const int8_t h, const int8_t m, const int8_t s);
-int64_t julian(const int16_t yyyy, const int8_t mm, const int8_t dd);
-double decyear(const int16_t yyyy, const int8_t mm, const int8_t dd,
-               const int8_t h, const int8_t m, const int8_t s);
-double decyear(const int16_t yyyy, const int8_t mm, const int8_t dd);
-
-}  // namespace bfs
-
-#endif  // JULIAN_SRC_JULIAN_H_ NOLINT
+void loop() {}
