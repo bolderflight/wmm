@@ -2,17 +2,43 @@
 cmake_minimum_required(VERSION 3.14)
 # Project information
 project(Wmm
-  VERSION 1.0.0
+  VERSION 1.1.0
   DESCRIPTION "World Magnetic Model"
   LANGUAGES CXX
 )
 include(FetchContent)
-# Fetch units
+if (DEFINED DEPS)
+  string(TOUPPER ${DEPS} DEPS)
+  if (DEPS STREQUAL "BFS")
+    # Fetch global defs
+    FetchContent_Declare(
+      units
+      GIT_REPOSITORY git@192.168.1.11:bolderflight/software/units.git
+      GIT_TAG v5.0.0
+    )
+  elseif(DEPS STREQUAL "LOCAL")
+    # Fetch global defs
+    FetchContent_Declare(
+      units
+      GIT_REPOSITORY ${CMAKE_SOURCE_DIR}/../units
+      GIT_TAG v5.0.0
+    )
+  else()
+    # Fetch global defs
+    FetchContent_Declare(
+      units
+      GIT_REPOSITORY https://github.com/bolderflight/units.git
+      GIT_TAG v5.0.0
+    )
+  endif()
+else()
+# Fetch global defs
 FetchContent_Declare(
   units
   GIT_REPOSITORY https://github.com/bolderflight/units.git
-  GIT_TAG	v4.2.1
+  GIT_TAG v5.0.0
 )
+endif()
 FetchContent_MakeAvailable(units)
 # Add the library target
 add_library(wmm

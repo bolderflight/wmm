@@ -30,7 +30,7 @@
 #include "Arduino.h"
 #else
 #include <cstddef>
-#include <cinttypes>
+#include <cstdint>
 #endif
 
 #include "units.h"  // NOLINT

@@ -3,7 +3,7 @@
 ![Bolder Flight Systems Logo](img/logo-words_75.png) &nbsp; &nbsp; ![Arduino Logo](img/arduino_logo_75.png)
 
 # WMM
-This implements the World Magnetic Model providing the magnetic field vector, horizontal intensity, declination, inclination, and total intensity as outputs. This library is compatible with Arduino ARM and CMake build systems.
+This implements the World Magnetic Model providing the magnetic field vector, horizontal intensity, declination, inclination, and total intensity as outputs. This library is compatible with Arduino and CMake build systems.
    * [License](LICENSE.md)
    * [Changelog](CHANGELOG.md)
    * [Contributing guide](CONTRIBUTING.md)
@@ -17,7 +17,7 @@ Use the Arduino Library Manager to install this library or clone to your Arduino
 #include "wmm.h"
 ```
 
-An example Arduino executable is located at *examples/arduino/wmm_ex/wmm_ex.ino*. Teensy 3.x, 4.x, and LC devices are used for testing under Arduino and this library should be compatible with other ARM devices. This library is *not* expected to work on AVR devices.
+An example Arduino executable is located at *examples/arduino/wmm_ex/wmm_ex.ino*. Teensy 3.x, 4.x, and LC devices are used for testing under Arduino and this library should be compatible with other devices.
 
 ## CMake
 CMake is used to build this library, which is exported as a library target called *wmm*. The header is added as:
